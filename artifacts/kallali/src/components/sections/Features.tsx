@@ -1,86 +1,120 @@
 "use client";
-
 import { motion } from "framer-motion";
-import { Zap, Shield, SplitSquareHorizontal, Layers, LineChart, MessageSquare } from "lucide-react";
+import { Bot, CloudSun, BarChart3, Wallet, ShoppingBag, BookOpen } from "lucide-react";
+
+const features = [
+  {
+    icon: <Bot className="w-6 h-6" />,
+    title: "AI Farming Assistant",
+    description:
+      "Ask Kemraj anything — from planting schedules to pest identification. Get expert advice tailored to your specific crops, soil, and climate.",
+    color: "bg-green-50 text-kallali-green",
+    badge: "Powered by Kemraj",
+  },
+  {
+    icon: <CloudSun className="w-6 h-6" />,
+    title: "Weather Intelligence",
+    description:
+      "Hyperlocal 14-day forecasts with AI-generated farm alerts. Know exactly when to plant, irrigate, or harvest based on real weather data.",
+    color: "bg-sky-50 text-sky-600",
+    badge: "Hyperlocal",
+  },
+  {
+    icon: <BarChart3 className="w-6 h-6" />,
+    title: "Live Market Prices",
+    description:
+      "Track real-time commodity prices across Kenya's major markets. Sell smarter — see trends and get AI recommendations on the best time to sell.",
+    color: "bg-amber-50 text-amber-600",
+    badge: "Real-time",
+  },
+  {
+    icon: <Wallet className="w-6 h-6" />,
+    title: "Farm Finance",
+    description:
+      "Track income, expenses, and loans in one place. Get AI-powered financial insights and discover microfinance options designed for farmers.",
+    color: "bg-purple-50 text-purple-600",
+    badge: "Smart Insights",
+  },
+  {
+    icon: <ShoppingBag className="w-6 h-6" />,
+    title: "Marketplace",
+    description:
+      "Buy inputs — seeds, fertilizers, tools — and sell your produce directly to buyers. Cut out middlemen and maximize your farm revenue.",
+    color: "bg-rose-50 text-rose-600",
+    badge: "Direct Trade",
+  },
+  {
+    icon: <BookOpen className="w-6 h-6" />,
+    title: "Digital Farm Diary",
+    description:
+      "Log planting dates, treatments, yields, and observations. Your AI diary learns from your history to give better advice every season.",
+    color: "bg-teal-50 text-teal-600",
+    badge: "Always Learning",
+  },
+];
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 export default function Features() {
-  const features = [
-    {
-      icon: <SplitSquareHorizontal size={24} />,
-      title: "Focused Workspaces",
-      description: "Separate your deep work from your quick tasks. Context switching is the enemy of productivity."
-    },
-    {
-      icon: <Zap size={24} />,
-      title: "Frictionless Capture",
-      description: "Jot down ideas at the speed of thought. Hit Cmd+K, type, and get back to what you were doing."
-    },
-    {
-      icon: <Layers size={24} />,
-      title: "Sustainable Pacing",
-      description: "Built-in rhythms that prevent burnout. Kallali encourages breaks and caps daily task overload."
-    },
-    {
-      icon: <LineChart size={24} />,
-      title: "Meaningful Insights",
-      description: "Measure what matters. See how much time you spend in deep work versus reactive fire-fighting."
-    },
-    {
-      icon: <Shield size={24} />,
-      title: "Private by Default",
-      description: "Your raw thoughts and unpolished drafts belong to you. We don't read them. We don't sell them."
-    },
-    {
-      icon: <MessageSquare size={24} />,
-      title: "Calm Collaboration",
-      description: "Asynchronous updates replace endless meetings. Keep the team aligned without breaking focus."
-    }
-  ];
-
   return (
-    <section id="features" className="py-24 bg-gray-50">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4"
-          >
-            Built for focus, designed for calm.
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg text-gray-600"
-          >
-            We stripped away the complexity of traditional project management tools. What's left is a fast, resilient system for actually getting work done.
-          </motion.p>
-        </div>
+    <section id="features" className="py-28 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <span className="inline-block px-3 py-1 rounded-full bg-green-50 border border-green-200 text-kallali-green text-xs font-semibold uppercase tracking-wide mb-4">
+            Everything You Need
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+            A complete toolkit for the modern farmer
+          </h2>
+          <p className="mt-4 text-lg text-gray-500 leading-relaxed">
+            Every tool built with farmers in mind — simple to use, powerful under the hood.
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        {/* Grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {features.map((f) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-              className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+              key={f.title}
+              variants={item}
+              className="group relative bg-white rounded-2xl border border-gray-100 p-6 hover:border-green-200 hover:shadow-lg transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-kallali-green-muted text-kallali-green flex items-center justify-center mb-6">
-                {feature.icon}
+              <div className="flex items-start justify-between mb-4">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${f.color}`}>
+                  {f.icon}
+                </div>
+                <span className="px-2.5 py-1 rounded-full bg-gray-50 text-gray-400 text-[11px] font-medium border border-gray-100">
+                  {f.badge}
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">
-                {feature.description}
-              </p>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{f.description}</p>
+
+              {/* Subtle hover accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl bg-kallali-green scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

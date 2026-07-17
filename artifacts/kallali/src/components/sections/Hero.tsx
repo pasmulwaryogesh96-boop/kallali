@@ -1,189 +1,190 @@
 "use client";
-
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Play, Sprout, TrendingUp, CloudSun } from "lucide-react";
+
+const floatingCards = [
+  {
+    icon: <CloudSun className="w-4 h-4 text-kallali-green" />,
+    label: "Weather Alert",
+    value: "Rain expected Thursday",
+    sub: "Plan irrigation accordingly",
+  },
+  {
+    icon: <TrendingUp className="w-4 h-4 text-kallali-green" />,
+    label: "Maize Price",
+    value: "KSh 4,200 / bag",
+    sub: "↑ 8% from last week",
+  },
+  {
+    icon: <Sprout className="w-4 h-4 text-kallali-green" />,
+    label: "Crop Health",
+    value: "All crops healthy",
+    sub: "Next check in 3 days",
+  },
+];
 
 export default function Hero() {
   return (
-    <section className="pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden relative">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-kallali-green-muted/40 blur-3xl" />
-        <div className="absolute top-40 -left-20 w-72 h-72 rounded-full bg-gray-50 blur-3xl" />
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-white pt-16">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-green-50/60 via-white to-white pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-green-100/30 blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-green-50/40 blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
-          
-          <div className="flex-1 max-w-2xl text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-kallali-green-muted text-kallali-green-dark text-sm font-medium mb-6"
-            >
-              <span className="flex h-2 w-2 rounded-full bg-kallali-green"></span>
-              Kallali 2.0 is now available
-            </motion.div>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-[1.1] mb-6"
-            >
-              Do more with <br className="hidden md:block" />
-              <span className="text-kallali-green">less friction.</span>
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0"
-            >
-              Sustainable productivity for teams that care about deep work. We cut the noise so you can focus on what actually moves the needle.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10"
-            >
-              <a
-                href="#"
-                className="w-full sm:w-auto bg-kallali-green hover:bg-kallali-green-dark text-white rounded-full px-8 py-3.5 text-base font-semibold transition-all shadow-lg shadow-kallali-green/25 flex items-center justify-center gap-2 active:scale-95"
-              >
-                Start for free
-                <ArrowRight size={18} />
-              </a>
-              <a
-                href="#"
-                className="w-full sm:w-auto bg-white border border-gray-200 hover:border-gray-300 hover:bg-gray-50 text-gray-900 rounded-full px-8 py-3.5 text-base font-semibold transition-all flex items-center justify-center active:scale-95"
-              >
-                Book a demo
-              </a>
-            </motion.div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-16 items-center">
+        {/* Left — copy */}
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-kallali-green text-xs font-semibold tracking-wide uppercase mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-kallali-green animate-pulse" />
+              AI-Powered Farming Platform
+            </span>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500"
-            >
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className="text-kallali-green" /> No credit card required
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 size={16} className="text-kallali-green" /> 14-day free trial
-              </span>
-            </motion.div>
-          </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.08 }}
+            className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-[1.08] tracking-tight"
+          >
+            Empowering
+            <br />
+            <span className="text-kallali-green">Farmers</span>
+            <br />
+            with AI.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.16 }}
+            className="mt-6 text-lg sm:text-xl text-gray-500 max-w-lg leading-relaxed"
+          >
+            Manage your farm, finances, marketplace, and crops with{" "}
+            <span className="font-semibold text-gray-700">Kemraj</span> — your AI farming companion.
+          </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex-1 w-full max-w-2xl lg:max-w-none relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.24 }}
+            className="mt-10 flex flex-wrap gap-4"
           >
-            {/* Abstract UI representation */}
-            <div className="relative rounded-2xl bg-white border border-gray-100 shadow-2xl p-2 aspect-[4/3] md:aspect-auto md:h-[500px] flex flex-col overflow-hidden">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-gray-200" />
-                  <div className="w-3 h-3 rounded-full bg-gray-200" />
-                  <div className="w-3 h-3 rounded-full bg-gray-200" />
-                </div>
-              </div>
-              <div className="flex flex-1 overflow-hidden bg-gray-50 rounded-b-xl">
-                {/* Sidebar mock */}
-                <div className="w-16 md:w-48 bg-white border-r border-gray-100 p-4 flex flex-col gap-4">
-                  <div className="w-full h-8 bg-gray-100 rounded-md animate-pulse" />
-                  <div className="w-3/4 h-4 bg-gray-100 rounded mt-4" />
-                  <div className="w-full h-4 bg-gray-100 rounded" />
-                  <div className="w-5/6 h-4 bg-gray-100 rounded" />
-                  <div className="w-full h-4 bg-gray-100 rounded" />
-                </div>
-                {/* Content mock */}
-                <div className="flex-1 p-6 md:p-8 flex flex-col gap-6 relative">
-                  <div className="flex justify-between items-center">
-                    <div className="w-1/3 h-8 bg-gray-200 rounded-md" />
-                    <div className="w-24 h-8 bg-kallali-green-muted rounded-full" />
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div className="h-24 bg-white border border-gray-100 rounded-xl shadow-sm p-4 flex flex-col justify-between">
-                      <div className="w-8 h-8 rounded-full bg-kallali-green/10 flex items-center justify-center">
-                        <div className="w-4 h-4 bg-kallali-green rounded-full" />
-                      </div>
-                      <div className="w-1/2 h-4 bg-gray-100 rounded" />
-                    </div>
-                    <div className="h-24 bg-white border border-gray-100 rounded-xl shadow-sm p-4 flex flex-col justify-between">
-                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
-                        <div className="w-4 h-4 bg-blue-400 rounded-full" />
-                      </div>
-                      <div className="w-2/3 h-4 bg-gray-100 rounded" />
-                    </div>
-                    <div className="h-24 hidden md:flex bg-white border border-gray-100 rounded-xl shadow-sm p-4 flex-col justify-between">
-                      <div className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center">
-                        <div className="w-4 h-4 bg-orange-400 rounded-full" />
-                      </div>
-                      <div className="w-1/2 h-4 bg-gray-100 rounded" />
-                    </div>
-                  </div>
-                  <div className="flex-1 bg-white border border-gray-100 rounded-xl shadow-sm p-4 md:p-6 mt-2 relative overflow-hidden">
-                    {/* Floating green element for focus */}
-                    <motion.div 
-                      animate={{ y: [0, -10, 0] }} 
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute right-8 top-8 w-16 h-16 bg-kallali-green/10 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-kallali-green/20"
-                    >
-                      <CheckCircle2 className="text-kallali-green" size={24} />
-                    </motion.div>
-                    <div className="w-1/4 h-5 bg-gray-200 rounded mb-6" />
-                    <div className="space-y-4">
-                      <div className="w-full h-12 bg-gray-50 rounded-lg flex items-center px-4">
-                        <div className="w-4 h-4 rounded-full border-2 border-kallali-green mr-4" />
-                        <div className="w-1/2 h-3 bg-gray-200 rounded" />
-                      </div>
-                      <div className="w-full h-12 bg-gray-50 rounded-lg flex items-center px-4">
-                        <div className="w-4 h-4 rounded-full border-2 border-gray-300 mr-4" />
-                        <div className="w-3/4 h-3 bg-gray-200 rounded" />
-                      </div>
-                      <div className="w-full h-12 bg-gray-50 rounded-lg flex items-center px-4">
-                        <div className="w-4 h-4 rounded-full border-2 border-gray-300 mr-4" />
-                        <div className="w-2/3 h-3 bg-gray-200 rounded" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Floating decorative elements */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="absolute -bottom-6 -right-6 md:-right-10 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-4 z-10"
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-kallali-green text-white font-semibold text-sm hover:bg-kallali-green-dark transition-all shadow-lg shadow-green-200 hover:shadow-green-300 hover:-translate-y-0.5"
             >
-              <div className="w-10 h-10 rounded-full bg-kallali-green-muted flex items-center justify-center">
-                <span className="text-kallali-green font-bold text-lg">+12</span>
+              Get Started
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white text-gray-700 font-semibold text-sm border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all hover:-translate-y-0.5"
+            >
+              <div className="w-6 h-6 rounded-full bg-green-50 border border-green-200 flex items-center justify-center">
+                <Play className="w-2.5 h-2.5 text-kallali-green fill-kallali-green" />
               </div>
-              <div>
-                <p className="text-sm font-bold text-gray-900">Hours saved</p>
-                <p className="text-xs text-gray-500">Per week, per team</p>
-              </div>
-            </motion.div>
+              Watch Demo
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.36 }}
+            className="mt-12 flex items-center gap-6"
+          >
+            <div className="flex -space-x-2">
+              {["🧑🏾‍🌾", "👩🏿‍🌾", "🧑🏽‍🌾", "👨🏾‍🌾"].map((emoji, i) => (
+                <div
+                  key={i}
+                  className="w-8 h-8 rounded-full bg-green-100 border-2 border-white flex items-center justify-center text-sm"
+                >
+                  {emoji}
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-gray-500">
+              <span className="font-semibold text-gray-800">12,000+</span> farmers already growing smarter
+            </p>
           </motion.div>
         </div>
+
+        {/* Right — floating dashboard cards */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.65, delay: 0.2 }}
+          className="relative hidden lg:flex flex-col gap-4"
+        >
+          {/* Main dashboard card */}
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-xl p-6">
+            <div className="flex items-center justify-between mb-5">
+              <div>
+                <p className="text-xs font-medium text-gray-400 uppercase tracking-wide">Farm Overview</p>
+                <p className="text-lg font-bold text-gray-900 mt-0.5">Kiambu Farm — July 2026</p>
+              </div>
+              <span className="px-2.5 py-1 rounded-full bg-green-50 text-kallali-green text-xs font-semibold">Live</span>
+            </div>
+            <div className="grid grid-cols-3 gap-4 mb-5">
+              {[
+                { label: "Hectares", value: "4.2" },
+                { label: "Active Crops", value: "3" },
+                { label: "Revenue (KSh)", value: "182K" },
+              ].map((stat) => (
+                <div key={stat.label} className="bg-gray-50 rounded-xl p-3 text-center">
+                  <p className="text-xl font-bold text-gray-900">{stat.value}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+            {/* Progress bars */}
+            <div className="space-y-3">
+              {[
+                { crop: "Maize", pct: 72 },
+                { crop: "Tomatoes", pct: 45 },
+                { crop: "Beans", pct: 89 },
+              ].map((c) => (
+                <div key={c.crop}>
+                  <div className="flex justify-between text-xs mb-1">
+                    <span className="text-gray-600 font-medium">{c.crop}</span>
+                    <span className="text-gray-400">{c.pct}% growth</span>
+                  </div>
+                  <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-kallali-green rounded-full"
+                      style={{ width: `${c.pct}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Floating notification cards */}
+          <div className="grid grid-cols-3 gap-3">
+            {floatingCards.map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 + i * 0.1 }}
+                className="bg-white rounded-xl border border-gray-100 shadow-md p-3"
+              >
+                <div className="w-7 h-7 rounded-lg bg-green-50 flex items-center justify-center mb-2">
+                  {card.icon}
+                </div>
+                <p className="text-xs font-semibold text-gray-500">{card.label}</p>
+                <p className="text-xs font-bold text-gray-900 mt-0.5 leading-tight">{card.value}</p>
+                <p className="text-[10px] text-gray-400 mt-0.5 leading-tight">{card.sub}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
