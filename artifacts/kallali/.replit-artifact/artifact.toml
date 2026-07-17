@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Kallali"
+version = "1.0.0"
+id = "artifacts/kallali"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18285
+
+[services.development]
+run = "pnpm --filter @workspace/kallali run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/kallali", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/kallali/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18285"
+BASE_PATH = "/"

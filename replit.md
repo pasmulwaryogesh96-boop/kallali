@@ -1,6 +1,6 @@
-# [Project name]
+# Kallali
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A professional startup landing page for a sustainable productivity tool — white and green theme, 9 sections, scroll animations.
 
 ## Run & Operate
 
